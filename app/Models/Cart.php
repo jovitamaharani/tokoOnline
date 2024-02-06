@@ -30,4 +30,14 @@ class Cart extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get all of the comments for the Cart
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function detail(): HasMany
+    {
+        return $this->hasMany(Detail::class, 'foreign_key', 'local_key');
+    }
 }
